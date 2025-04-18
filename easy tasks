@@ -1,0 +1,44 @@
+## First task
+
+def gcd(a, b):
+
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a % b)
+
+
+print(gcd(156, 798))
+
+
+## Second Task
+
+def sum(n):
+
+    if n < 10:
+        return n
+    else:
+
+        return n % 10 + sum(n // 10)
+
+print(sum(12395))
+
+##Third Task
+
+def symmetric(lst_num):
+    if len(lst_num) <= 1:
+        return "The list is symmetric"
+
+    if lst_num[0] == lst_num[-1]:
+        return symmetric(lst_num[1:-1])
+    else:
+        return "The list is not symmetric"
+
+
+user_input = input("Enter numbers separated by spaces: ")
+
+lst = []
+for num in user_input.split():
+    lst.append(int(num))
+
+print(symmetric(lst))

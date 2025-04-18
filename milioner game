@@ -1,0 +1,55 @@
+def points():
+    score = 0
+    return score
+
+def questions():
+    quiz = {
+        "What color is the sky on a clear day?": "Blue",
+        "Which month of the year is the shortest?": "February",
+        "Who wrote the novel 'Crime and Punishment'?": "Fyodor Dostoevsky",
+        "Which planet is the largest in our solar system?": "Jupiter",
+        "What is the chemical symbol for gold?": "Au"
+    }
+    return quiz
+
+def options():
+    option_quiz = {
+        "What color is the sky on a clear day?": ["Red", "Blue", "Orange", "Black"],
+        "Which month of the year is the shortest?": ["September", "February", "December", "March"],
+        "Who wrote the novel 'Crime and Punishment'?": ["Fyodor Dostoevsky", "Leo Tolstoy", "Anton Chekhov", "Ivan Turgenev"],
+        "Which planet is the largest in our solar system?": ["Mars", "Earth", "Venus", "Jupiter"],
+        "What is the chemical symbol for gold?": ["Fe", "Ag", "Au", "Cu"]
+    }
+    return option_quiz
+print("The millionaire game".title())
+
+def overall_game():
+    score = points()
+    quiz = questions()
+    option_list = options()
+
+    for i, (question,right_answer) in enumerate(quiz.items() , start= 1):
+        print(f"\nQuestion{i}: {question}")
+
+        for j , option, in enumerate(option_list[question], start= 1):
+            print(f"Option{j}: {option}")
+
+        answer = int(input("\nEnter your choose(1-4): "))
+
+        if answer > 4 or answer < 1:
+            print("Sorry input (1-4)")
+            break
+        else:
+            if option_list[question][answer - 1] == right_answer:
+                print("Right!")
+                score += 1
+            else:
+                print(f"The answer was wrong the right answer is {right_answer}")
+    if score > 3:
+        print(f"Good job your score is {score}/{len(quiz)}")
+    else:
+        print(f"Bad job your score is {score}/{len(quiz)}")
+
+
+
+overall_game()
