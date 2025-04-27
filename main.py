@@ -28,21 +28,8 @@ def choice_one():
             if file.endswith(extension):
                 print(os.path.join(root,file))
 def choice_two():
-    try:
-        size = int(input("Min size in bytes (e.g. 1000000 for 1MB): "))
-        print(f"Filtering files > {size} bytes...")
-
-        for root,dirs,files in os.walk("C:\\"):
-            for file in files:
-                try:
-                    path = os.path.join(root,file)
-                    if os.path.getsize(path) > size:
-                        print(path)
-                except Exception as e:
-                    print(f"Unknown error {e}")
-    except ValueError:
-        print("Error enter a number")
-
+    size = int(input("Min size in bytes (e.g. 1000000 for 1MB): "))
+    print(f"Filtering files > {size} bytes...")
 
 def choice_three():
     name = input("Enter a name of the file | folder: ")
