@@ -37,11 +37,28 @@ def main_text():
 
     user_choose = input("Please select an option (1/2/3): ")
 
-def play_game(user_choose):
-    pass
+    return user_choose
+
+def play_game():
+    pc_choose = random.choice(["heads","tails"])
+    if pc_choose == "heads":
+        head_coin()
+    else:
+        tail_coin()
 
 def info_game():
-    pass
+    print("""
+    === GAME INFO ===
 
+    In this game, you test your luck!
+    The computer flips a coin: heads or tails.
+    Your task is to guess the outcome.
+
+    Good luck and have fun!
+
+    Press Enter to return to the menu...
+    """)
+    input("-->")
 def exit_game():
-    pass
+    print("Bye Bye...")
+
