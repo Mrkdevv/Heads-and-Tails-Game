@@ -3,33 +3,27 @@
 import random
 
 def head_coin():
-    print("""
-         ~~~~~~~~
-       /\\         /\\
-      /  \\       /  \\
-     /    \\     /    \\
-    |      |   |      |
-    |  HEADS   |
-     \\         /
-      \\       /
-       \\~~~~~/
-     """)
-def tail_coin():
-    print("""
-         ~~~~~~~~
-       /\\         /\\
-      /  \\       /  \\
-     /    \\     /    \\
-    |      |   |      |
-    |  TAILS   |
-     \\         /
-      \\       /
-       \\~~~~~/
-     """)
+    print(r"""
+      .-------.
+     /         \
+    |   HEADS   |
+    |   (◕‿◕)   |
+     \         /
+      `-------`
+    """)
 
+def tail_coin():
+    print(r"""
+      .-------.
+     /         \
+    |   TAILS   |
+    |   (≧◡≦)   |
+     \         /
+      `-------`
+    """)
 
 def main_text():
-    print("\t\tWELCOME TO THE HEADS OR TAILS GAME!")
+    print("\n\t\tWELCOME TO THE HEADS OR TAILS GAME!")
 
     print("1) PLAY!")
     print("2) INFO!")
@@ -40,25 +34,37 @@ def main_text():
     return user_choose
 
 def play_game():
-    pc_choose = random.choice(["heads","tails"])
-    if pc_choose == "heads":
+    pc_choose = random.choice(["HEADS","TAILS"])
+    if pc_choose == "HEADS":
         head_coin()
     else:
         tail_coin()
+
+    print(f"YOU GOT: {pc_choose}\n")
 
 def info_game():
     print("""
     === GAME INFO ===
 
-    In this game, you test your luck!
-    The computer flips a coin: heads or tails.
-    Your task is to guess the outcome.
+    Flip a coin and guess: heads or tails.
+    Let's see if luck is on your side!
 
-    Good luck and have fun!
-
-    Press Enter to return to the menu...
+    Press Enter to continue...
     """)
     input("-->")
-def exit_game():
-    print("Bye Bye...")
 
+def exit_game():
+    print("Bye Bye...\n")
+    quit()
+
+while True:
+    user_choice = main_text()
+
+    if user_choice == "1":
+        play_game()
+    elif user_choice == "2":
+        info_game()
+    elif user_choice == "3":
+        exit_game()
+    else:
+        print("Invalid choice, please try again.\n")
